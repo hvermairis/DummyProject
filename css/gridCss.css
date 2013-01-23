@@ -1,0 +1,62 @@
+﻿.gridCssNew
+{
+	color:#4a4a4a;	
+	border:#ebebeb 1px solid;
+	font-size: 11px;
+}
+.gridCssNew td, .gridCssNew th{ padding:3px;}
+
+.gridHeaderCssNew
+{
+	background-color:#0093d7;
+	text-align:center;
+	font-weight:bold;
+	color:#ffffff;
+	border:#ffffff 1px solid;
+	border-collapse:collapse;
+	font-size: 11px;
+}
+
+.gridFirstHeaderRow
+{
+    background-color:#9DDFFF;
+    color:#000000;
+   font-size: 11px;
+    
+}
+
+
+.gridItemCssNew
+{
+	background-color:#effafd;
+	text-align:center;
+	font-weight:normal;
+	color:#4a4a4a;
+	font-size: 11px;	
+	border:#ebebeb 1px solid !important;
+	border-collapse:collapse;
+}
+
+.gridRowStypeNew
+{
+	background-color:#7fc9eb;
+	text-align:center;
+}
+
+.gridPagerStyleNew
+{
+	background-color:#2461BF;
+	text-align:center;
+	color:#FFFFFF;
+
+}
+
+.gridAlternateItemCssNew
+{
+	background-color:#FFFFFF;
+	color:#4a4a4a;
+	font-weight:normal;
+	text-align:center;
+	
+}
+

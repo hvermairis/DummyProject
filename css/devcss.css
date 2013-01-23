@@ -1,0 +1,203 @@
+﻿
+#lightbox {
+    background: none repeat scroll 0 0 #FDFCE9;
+    border: 1px solid #FFFFFF;
+  
+    height: 900px;
+    left: 2%;
+    margin: 0px 0 0 0px;
+ 
+    position: absolute;
+    text-align: left;
+    top: 0%;
+    width: 1250px;
+    z-index: 9999;
+}
+
+.panelCss
+{
+      border-width:2px;
+  border-style:solid;
+  border-color:#5EFF5E;
+  background-color:#4FFF7B;
+}
+
+.leftCellCss
+{
+    text-align:left;
+    padding-left:3px;
+    color: #555658;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+}
+
+.leftCellWidthoutBoldCss
+{
+    text-align:left;
+    padding-left:3px;
+    
+}
+
+.cellWidth
+{
+  width : 262px;
+   color: #555658;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+}
+
+.BoldText
+{
+  font-weight:bold;
+}
+
+.InnerCellWidth
+{
+ 
+   width : 265px;
+   color: #555658;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+}
+
+
+
+.headingColor
+{
+    color:#000000;
+}
+
+.smallItalicfont
+{
+    font-size:12px;
+    font-style:italic;
+}
+
+.BigItalicfont
+{
+    font-size:16px;
+    font-style:italic;
+    font-size:16;
+    text-align:left;
+     padding-left:5px;
+     vertical-align:top;
+    
+}
+
+
+
+.CenterCellCss
+{
+    text-align:center;
+    padding-left:30px;
+    padding-right:30px;
+    font-weight:bold;
+}
+
+.rightCellCss
+{
+    text-align:left;
+    padding-left:3px;
+    color: #555658;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+}
+
+.GapBetweenTwoCol
+{
+    width: 227px;
+}
+
+
+  .completionList
+        {
+            border: solid 1px #a2a2a2;
+            margin: 0px;
+            padding: 0px;
+            background-color: #f7f7f7;
+            list-style-type: none;
+        }
+        .listItem
+        {
+            color: #383838;
+        }
+        .itemHighlighted
+        {
+            background-color: #e0f5fe;
+        }
+        
+        
+        .searchbl {
+            height: 24px;
+            width: 200px;
+            border: none;
+            margin-top: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            font-weight: normal;
+        
+            text-decoration: none;
+          
+            background-repeat: no-repeat;
+            background-position: left top;
+            padding:0px !important;
+            margin:0px !important;
+            border-width:0px !important;
+            
+}
+
+.errorMsgCSS
+{
+  color:#0075ab;
+  font-size:16px;
+  padding-left:106px;
+     
+}
+
+ .filterHeader {  text-transform:uppercase; font-size:13px;vertical-align:top; padding:5px 0; font-weight:bold;}
+ 
+ .areaWidth
+ {
+     width:200px;
+ }
+ 
+ .cssChkBox
+ {
+     font-size:12px;
+ }
+ 
+ .divSize
+ {
+     height:300px;
+     overflow:auto;
+ }
+ 
+ 
+ .lblHeaderUserName
+ {
+  
+   font-size:14;
+   color:#ffffff;
+   text-decoration: none;  
+   padding-right:13px;
+     
+ }
+ 
+ .thumbnailImg
+ {
+     border:1px solid #a2a2a2;
+     width:80px;
+     height:80px;
+ }
+ 
+ .mandentoryfieldColor
+ {
+   color:#ff0000;   
+   font-size: 19px;
+   vertical-align: middle;
+ }
+ 
+ .dashlblWidth
+ {
+   width:250px;   
+ }

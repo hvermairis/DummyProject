@@ -1,0 +1,265 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="UserFrontViewMaster.master.cs"
+    Inherits="UserFrontViewMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Sony Recce</title>
+    <link rel="stylesheet" href="css/devcss.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <script language="javascript" src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script language="javascript" src="js/script.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript">
+        
+                          
+                           
+
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ScriptManager ID="ScriptMn" runat="server">
+        </asp:ScriptManager>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                                <img src="images/sony-logo.png" alt="Sony" width="129" height="44" border="0" style="margin-left: 35px;
+                                    margin-top: 35px; display: block;" />
+                            </td>
+                            <td align="right">
+                                <img src="images/iris-logo.png" alt="Sony"  border="0" style="margin-right: 35px;
+                                    margin-top: 35px; display: block;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="right" style="padding-top:8px;">
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="lblHeaderUserName">
+                                            <asp:Label ID="lblUserName" runat="server" Text="UserName"></asp:Label>&nbsp;|&nbsp;<asp:LinkButton
+                                                ID="linkButton" runat="server" CssClass="lblHeaderUserName" Text="Logout" OnClick="linkButton_Click"></asp:LinkButton>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td height="5">
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td width="33">
+                                &nbsp;
+                            </td>
+                            <td width="202" valign="top">
+                                <table width="202" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="side-nav-top-bg">
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="side-nav-middle-bg">
+                                            <table width="186" border="0" align="center" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td class="side-nav-text">
+                                                        <a href="ReceeList.aspx">Recce List</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="side-nav-text">
+                                                        <a href="ReceeForm.aspx">New Recce</a>
+                                                    </td>
+                                                </tr>
+                                               
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="side-nav-bottom-bg">
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td width="13">
+                                &nbsp;
+                            </td>
+                            <td valign="top">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td width="98%">
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td class="main-content-top-left-bg">
+                                                        &nbsp;
+                                                    </td>
+                                                    <td class="main-content-top-middle-bg">
+                                                        <div id="menu-nav">
+                                                            <ul>
+                                                                <li><a href="ReceeList.aspx">Recce List</a></li>
+                                                                <li><a href="ReceeForm.aspx">New Recce</a></li>
+
+                                                                  <li  id="trAddCounter" runat="server" style="display:none"> <a href="AddOutlet.aspx">Add Outlet</a></li>
+
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="main-content-top-right-bg">
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="main-content-middle-left-bg">
+                                                        &nbsp;
+                                                    </td>
+                                                    <td class="main-content-bg-color">
+                                                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                                        </asp:ContentPlaceHolder>
+                                                    </td>
+                                                    <td class="main-content-middle-right-bg">
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="main-content-bottom-left-bg">
+                                                        &nbsp;
+                                                    </td>
+                                                    <td class="main-content-bottom-middle-bg">
+                                                        &nbsp;
+                                                    </td>
+                                                    <td class="main-content-bottom-right-bg">
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td width="2%">
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

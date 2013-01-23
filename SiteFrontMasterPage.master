@@ -1,0 +1,291 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SiteFrontMasterPage.master.cs"
+    Inherits="SiteFrontMasterPage" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="tk" %>
+<%@ Register Src="~/UserControl/LeftFilter.ascx" TagName="LeftBar" TagPrefix="Left" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Sony Recce</title>
+    <link rel="stylesheet" href="css/devcss.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="stylesheet" href="css/SpryAccordion.css" type="text/css" />
+    <link rel="stylesheet" href="css/gridCss.css" type="text/css" />
+    <script language="javascript" src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script language="javascript" src="js/script.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript">
+
+
+        window.history.forward(1);              
+
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ScriptManager ID="ScriptMn" runat="server">
+        </asp:ScriptManager>
+        <div id="divuploading" style="width: 100%; left: 550px; text-align: center; top: 300px;
+            position: absolute;">
+            <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="updatedFirst">
+                <ProgressTemplate>
+                    <div style="width: 200px; padding: 60px; text-align: center; background-color: White;
+                        border: solid 2px #1F64B6;">
+                        <img src="images/processing.gif" alt="Processing..." />
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
+        </div>
+        <asp:UpdatePanel ID="updatedFirst" runat="server" UpdateMode="Conditional">
+            <ContentTemplate>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td>
+                                        <img src="images/sony-logo.png" alt="Sony" width="129" height="44" border="0" style="margin-left: 35px;
+                                            margin-top: 35px; display: block;" />
+                                    </td>
+                                    <td align="right">
+                                        <img src="images/iris-logo.png" alt="Sony" border="0" style="margin-right: 35px;
+                                            margin-top: 35px; display: block;" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <table cellpadding="0" cellspacing="0" border="0">
+                                            <tr>
+                                                <td>
+                                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                                                        <ContentTemplate>
+                                                            <asp:TextBox ID="txtOutletId" runat="server" CssClass="textbox"></asp:TextBox>
+                                                            <tk:TextBoxWatermarkExtender ID="txtOutletId_TextBoxWatermarkExtender" WatermarkText="Enter Outlet Id or Name"
+                                                                runat="server" Enabled="True" TargetControlID="txtOutletId">
+                                                            </tk:TextBoxWatermarkExtender>
+                                                            &nbsp;<span id="processing" style="visibility: hidden;"></span>
+                                                            <tk:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" MinimumPrefixLength="1"
+                                                                CompletionInterval="1000" EnableCaching="true" CompletionSetCount="20" ServiceMethod="GetList"
+                                                                CompletionListCssClass="completionList" CompletionListHighlightedItemCssClass="itemHighlighted"
+                                                                CompletionListItemCssClass="listItem" OnClientPopulating="ShowIcon" OnClientPopulated="ShowIcon"
+                                                                TargetControlID="txtOutletId" BehaviorID="AutoCompleteEx" OnClientItemSelected="getCode">
+                                                                <Animations>
+                                                                    <OnShow>
+                                                                        <Sequence>
+                                                                            <%-- Make the completion list transparent and then show it --%>
+                                                                            <OpacityAction Opacity="0" />
+                                                                            <HideAction Visible="true" />
+                                                                            
+                                                                            <%--Cache the original size of the completion list the first time
+                                                                                the animation is played and then set it to zero --%>
+                                                                            
+                                                                            
+                                                                            
+                                                                            <ScriptAction Script="
+                                                                                // Cache the size and setup the initial size
+                                                                                var behavior = $find('AutoCompleteEx');
+                                                                                if (!behavior._height) {
+                                                                                    var target = behavior.get_completionList();
+                                                                                    behavior._height = target.offsetHeight - 2;
+                                                                                    target.style.height = '0px';
+                                                                                }" />
+                                                                            
+                                                                            <%-- Expand from 0px to the appropriate size while fading in --%>
+                                                                            
+                                                                            
+                                                                            
+                                                                            <Parallel Duration=".4">
+                                                                                <FadeIn />
+                                                                                <Length PropertyKey="height" StartValue="0" EndValueScript="$find('AutoCompleteEx')._height" />
+                                                                            </Parallel>
+                                                                        </Sequence>
+                                                                    </OnShow>
+                                                                    <OnHide>
+                                                                        <%-- Collapse down to 0px and fade out --%>
+                                                                        
+                                                                        
+                                                                        <Parallel Duration=".4">
+                                                                            <FadeOut />
+                                                                            <Length PropertyKey="height" StartValueScript="$find('AutoCompleteEx')._height" EndValue="0" />
+                                                                        </Parallel>
+                                                                    </OnHide>
+                                                                </Animations>
+                                                            </tk:AutoCompleteExtender>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                </td>
+                                                <td>
+                                                    <asp:ImageButton ID="btnSearch" runat="server" Text="Search" ImageUrl="~/images/main-content/search-btn-white.png"
+                                                        OnClick="btnSearch_Click" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td align="right" style="padding-top: 8px; padding-bottom:8px;">
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="lblHeaderUserName">
+                                                    <asp:Label ID="lblUserName" runat="server" Text="UserName"></asp:Label>&nbsp;|&nbsp;<asp:LinkButton
+                                                        ID="linkButton" runat="server" CssClass="lblHeaderUserName" Text="Logout" OnClick="linkButton_Click"></asp:LinkButton>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="33">
+                                        &nbsp;
+                                    </td>
+                                    <td width="202" valign="top">
+                                        <table width="202" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="side-nav-top-bg">
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="side-nav-middle-bg">
+                                                    <Left:LeftBar ID="leftPanel" runat="server"></Left:LeftBar>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="side-nav-bottom-bg">
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="13">
+                                        &nbsp;
+                                    </td>
+                                    <td valign="top">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td width="98%">
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                        <tr>
+                                                            <td class="main-content-top-left-bg">
+                                                                &nbsp;
+                                                            </td>
+                                                            <td class="main-content-top-middle-bg">
+                                                                <%--  <div id="menu-nav">
+                                                                    <ul>
+                                                                        <li><a href="ReceeList.aspx">Recce List</a></li>
+                                                                        <li><a href="ReceeForm.aspx">New Recce</a></li>
+                                                                    </ul>
+                                                                </div>--%>
+                                                            </td>
+                                                            <td class="main-content-top-right-bg">
+                                                                &nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="main-content-middle-left-bg">
+                                                                &nbsp;
+                                                            </td>
+                                                            <td class="main-content-bg-color">
+                                                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                                                </asp:ContentPlaceHolder>
+                                                            </td>
+                                                            <td class="main-content-middle-right-bg">
+                                                                &nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="main-content-bottom-left-bg">
+                                                                &nbsp;
+                                                            </td>
+                                                            <td class="main-content-bottom-middle-bg">
+                                                                &nbsp;
+                                                            </td>
+                                                            <td class="main-content-bottom-right-bg">
+                                                                &nbsp;
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td width="2%">
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
+    </form>
+</body>
+</html>
