@@ -13,7 +13,7 @@ body {
 /* -- Login page stylesheet -- */
 .login-bg {
 	background-image:url(../images/login-bg.png);
-	width:466px;
+	width:468px;
 	height:219px;
 	background-repeat:no-repeat;
 }
